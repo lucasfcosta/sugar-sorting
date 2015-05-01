@@ -1,0 +1,38 @@
+{
+  "name": "sugar-sorting",
+  "version": "0.0.0",
+  "description": "Sorting made sweet.",
+  "homepage": "http://github.com/lucasfcosta/sugar-sorting",
+  "author": {
+    "name": "Lucas Fernandes da Costa",
+    "email": "fernandesdacostalucas@gmail.com",
+    "url": "http://github.com/lucasfcosta"
+  },
+  "repository": "lucasfcosta/sugar-sorting",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "sugar-sorting",
+    "sugar",
+    "sorting",
+    "sorter",
+    "algorithm",
+    "sort"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-cli": "^1.12.0",
+    "jshint-stylish": "^1.0.1",
+    "load-grunt-tasks": "^3.1.0",
+    "time-grunt": "^1.1.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
