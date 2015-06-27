@@ -5,6 +5,8 @@ module.exports = function (grunt) {
   // Load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
   grunt.initConfig({
     jshint: {
       options: {
@@ -15,7 +17,7 @@ module.exports = function (grunt) {
         src: ['Gruntfile.js']
       },
       js: {
-        src: ['*.js']
+        src: ['lib/*.js']
       },
       test: {
         src: ['test/**/*.js']
@@ -45,4 +47,5 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['jshint', 'mochacli']);
+
 };
