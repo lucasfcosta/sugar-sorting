@@ -38,8 +38,10 @@ describe('Bubble Sorting', function () {
 
   it('Should sort the object array by the selected property path', function () {
     var sorter = new Sorter(objectArray);
-    sorter.sortBy('.age').bubbleSort();
-    console.log(sorter.getElements());
-    assert.equal(sorter.getElements()[0], objectArray[0]);
+
+    assert.equal(sorter.sortBy('.age').bubbleSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[0]);
+    assert.equal(sorter.getElements()[2], objectArray[2]);
   });
 });
