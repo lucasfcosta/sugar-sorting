@@ -12,4 +12,17 @@ describe('Sorter Properties', function () {
         assert.equal(sorter.getElements()[i], aSimpleArray[i]);
       }
   });
+
+  it('Should not change the array used to fill the sorter after sorting', function () {
+      var sorter = new Sorter(aSimpleArray);
+
+      // Creates a new array with the state of aSimpleArray before the sorting method call
+      var beforeSorting = aSimpleArray.slice(0);
+      sorter.bubbleSort();
+
+      // Checks if aSimpleArray is still the same as before sorting it
+      for (var i = 0; i < aSimpleArray.length; i++) {
+        assert.equal(beforeSorting[i], aSimpleArray[i]);
+      }
+  });
 });
