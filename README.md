@@ -73,7 +73,7 @@ These are the sorting methods on sugar-sorting. The ones marked with an X are th
 - [x] selectionSort()
 - [x] insertionSort()
 - [x] mergeSort()
-- [ ] heapSort()
+- [x] heapSort()
 - [ ] quickSort()
 - [ ] shellSort()
 
