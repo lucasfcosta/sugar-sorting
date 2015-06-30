@@ -1,6 +1,9 @@
-#sugar-sorting
+[![Build Status](https://travis-ci.org/lucasfcosta/sugar-sorting.svg)](https://travis-ci.org/lucasfcosta/sugar-sorting) [![Coverage Status](https://coveralls.io/repos/lucasfcosta/sugar-sorting/badge.svg)](https://coveralls.io/r/lucasfcosta/sugar-sorting)
+
+#Sugar-sorting
 Sorting made sweet.
 
+[![NPM](https://nodei.co/npm/sugar-sorting.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/sugar-sorting/)
 
 ## What is sugar-sorting?
 Sugar-sorting is a NPM Module for sorting arrays. It's main goal is to provide a simple sorting API and many different sorting methods for the user to choose from.
