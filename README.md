@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/lucasfcosta/sugar-sorting.svg)](https://travis-ci.org/lucasfcosta/sugar-sorting) [![Coverage Status](https://coveralls.io/repos/lucasfcosta/sugar-sorting/badge.svg)](https://coveralls.io/r/lucasfcosta/sugar-sorting)
 
-#Sugar-sorting
+Sugar-sorting
+===========
 Sorting made sweet.
 
 [![NPM](https://nodei.co/npm/sugar-sorting.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/sugar-sorting/)
