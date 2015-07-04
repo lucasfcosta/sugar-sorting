@@ -10,21 +10,30 @@ var objectArray = [{
     age: 28,
     userId: 78,
     height: 1.80,
-    yearsUntilGraduation: 7
+    yearsUntilGraduation: 7,
+    family: {
+      numberOfChildren: 3
+    }
   },
   {
     name: 'Addy Osmani',
     age: 23,
     userId: 94,
     height: 1.90,
-    yearsUntilGraduation: 9
+    yearsUntilGraduation: 9,
+    family: {
+      numberOfChildren: 0
+    }
   },
   {
     name: 'Paul Walker',
     age: 666,
     userId: 22,
     height: 1.85,
-    yearsUntilGraduation: 0
+    yearsUntilGraduation: 0,
+    family: {
+      numberOfChildren: 1
+    }
 }];
 
 describe('Bubble Sort', function () {
@@ -59,6 +68,15 @@ describe('Bubble Sort', function () {
     assert.equal(sorter.getElements()[0], objectArray[2]);
     assert.equal(sorter.getElements()[1], objectArray[0]);
     assert.equal(sorter.getElements()[2], objectArray[1]);
+  });
+
+  it('Should sort nested properties', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.family.numberOfChildren').bubbleSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[0]);
   });
 });
 
@@ -96,6 +114,15 @@ describe('Selection Sort', function () {
     assert.equal(sorter.getElements()[1], objectArray[0]);
     assert.equal(sorter.getElements()[2], objectArray[1]);
   });
+
+  it('Should sort nested properties', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.family.numberOfChildren').selectionSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[0]);
+  });
 });
 
 describe('Insertion Sort', function () {
@@ -131,6 +158,15 @@ describe('Insertion Sort', function () {
     assert.equal(sorter.getElements()[0], objectArray[2]);
     assert.equal(sorter.getElements()[1], objectArray[0]);
     assert.equal(sorter.getElements()[2], objectArray[1]);
+  });
+
+  it('Should sort nested properties', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.family.numberOfChildren').insertionSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[0]);
   });
 });
 
@@ -168,6 +204,15 @@ describe('Merge Sort', function () {
     assert.equal(sorter.getElements()[1], objectArray[0]);
     assert.equal(sorter.getElements()[2], objectArray[1]);
   });
+
+  it('Should sort nested properties', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.family.numberOfChildren').mergeSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[0]);
+  });
 });
 
 describe('Heap Sort', function () {
@@ -203,5 +248,14 @@ describe('Heap Sort', function () {
     assert.equal(sorter.getElements()[0], objectArray[2]);
     assert.equal(sorter.getElements()[1], objectArray[0]);
     assert.equal(sorter.getElements()[2], objectArray[1]);
+  });
+
+  it('Should sort nested properties', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.family.numberOfChildren').heapSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[0]);
   });
 });
