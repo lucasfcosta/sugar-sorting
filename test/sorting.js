@@ -259,3 +259,48 @@ describe('Heap Sort', function () {
     assert.equal(sorter.getElements()[2], objectArray[0]);
   });
 });
+
+describe('Quick Sort', function () {
+  it('Should sort the simple array correctly', function () {
+    var sorter = new Sorter(aSimpleArray);
+
+    assert.equal(sorter.quickSort().length, 6);
+
+    for (var i = 0; i < sorter.getElements().length; i++) {
+      assert.equal(sorter.getElements()[i], aSimpleArraySorted[i]);
+    }
+  });
+
+  it('Should sort the object array by the selected property path', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.age').quickSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[0]);
+    assert.equal(sorter.getElements()[2], objectArray[2]);
+
+    assert.equal(sorter.sortBy('.userId').quickSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[2]);
+    assert.equal(sorter.getElements()[1], objectArray[0]);
+    assert.equal(sorter.getElements()[2], objectArray[1]);
+
+    assert.equal(sorter.sortBy('.height').quickSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[0]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[1]);
+
+    assert.equal(sorter.sortBy('.yearsUntilGraduation').quickSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[2]);
+    assert.equal(sorter.getElements()[1], objectArray[0]);
+    assert.equal(sorter.getElements()[2], objectArray[1]);
+  });
+
+  it('Should sort nested properties', function () {
+    var sorter = new Sorter(objectArray);
+
+    assert.equal(sorter.sortBy('.family.numberOfChildren').quickSort().length, 3);
+    assert.equal(sorter.getElements()[0], objectArray[1]);
+    assert.equal(sorter.getElements()[1], objectArray[2]);
+    assert.equal(sorter.getElements()[2], objectArray[0]);
+  });
+});
