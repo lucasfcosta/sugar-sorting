@@ -78,7 +78,7 @@ These are the sorting methods on sugar-sorting. The ones marked with an X are th
 - [x] insertionSort()
 - [x] mergeSort()
 - [x] heapSort()
-- [ ] quickSort()
+- [x] quickSort()
 - [ ] shellSort()
 
 If you want to learn more about sorting algorithms and the best and worst case scenarios for each one, you can check these amazing links:
