@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('assert');
-var Sorter = require('../lib/sorter.js');
+var Sorter = require('../index.js');
 
 var aSimpleArray = [2,6,5,1,4,3];
 var aSimpleArraySorted = [1, 2, 3, 4, 5, 6];

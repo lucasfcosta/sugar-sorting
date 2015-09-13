@@ -1,3 +1,3 @@
-var Sorter = require('./lib/sorter.js');
+var Sorter = require('./sorter.js');
 
 module.exports = Sorter;
