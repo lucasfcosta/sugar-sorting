@@ -11,9 +11,9 @@
   "repository": "lucasfcosta/sugar-sorting",
   "license": "MIT",
   "files": [
-    "index.js",
-    "sorter.js"
+    "lib"
   ],
+  "main": "lib/sugarSorter.js",
   "keywords": [
     "sugar-sorting",
     "sugar",
