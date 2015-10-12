@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/lucasfcosta/sugar-sorting.svg)](https://travis-ci.org/lucasfcosta/sugar-sorting) [![Coverage Status](https://coveralls.io/repos/lucasfcosta/sugar-sorting/badge.svg)](https://coveralls.io/r/lucasfcosta/sugar-sorting)
+[![Build Status](https://travis-ci.org/lucasfcosta/sugar-sorting.svg?branch=master)](https://travis-ci.org/lucasfcosta/sugar-sorting) [![Coverage Status](https://coveralls.io/repos/lucasfcosta/sugar-sorting/badge.svg)](https://coveralls.io/r/lucasfcosta/sugar-sorting)
 
 Sugar-sorting
 ===========
