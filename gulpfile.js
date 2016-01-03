@@ -7,7 +7,6 @@ const eslint = require('gulp-eslint');
 const jscs = require('gulp-jscs');
 const mocha = require('gulp-mocha');
 const istanbul = require('gulp-istanbul');
-const plumber = require('gulp-plumber');
 const excludeGitignore = require('gulp-exclude-gitignore');
 
 gulp.task('jscs', () => {
