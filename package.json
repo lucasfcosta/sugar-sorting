@@ -33,7 +33,6 @@
     "gulp-istanbul": "^0.10.3",
     "gulp-jscs": "^3.0.2",
     "gulp-mocha": "^2.2.0",
-    "gulp-plumber": "^1.0.1",
     "mocha": "^2.3.4"
   },
   "scripts": {

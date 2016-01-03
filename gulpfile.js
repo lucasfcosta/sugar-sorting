@@ -1,12 +1,14 @@
-var gulp = require('gulp');
-var babel = require('gulp-babel');
-var coveralls = require('gulp-coveralls');
-var eslint = require('gulp-eslint');
-var jscs = require('gulp-jscs');
-var mocha = require('gulp-mocha');
-var istanbul = require('gulp-istanbul');
-var plumber = require('gulp-plumber');
-var excludeGitignore = require('gulp-exclude-gitignore');
+'use strict';
+
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const coveralls = require('gulp-coveralls');
+const eslint = require('gulp-eslint');
+const jscs = require('gulp-jscs');
+const mocha = require('gulp-mocha');
+const istanbul = require('gulp-istanbul');
+const plumber = require('gulp-plumber');
+const excludeGitignore = require('gulp-exclude-gitignore');
 
 gulp.task('jscs', () => {
     return gulp.src('**/*.js')
@@ -36,26 +38,28 @@ gulp.task('babel', () => {
 
 gulp.task('pre-test', () => {
   return gulp.src(['lib/**/*.js'])
-    .pipe(istanbul())
+    .pipe(istanbul({includeUntested: true}))
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], (cb) => {
-    let mochaErr;
-
-    gulp.src('test/**/*.js')
+gulp.task('test', ['pre-test'], () => {
+    return gulp.src('test/**/*.js')
         .pipe(babel())
-        .pipe(plumber())
         .pipe(mocha({reporter: 'spec'}))
-        .on('error', (err) => {
-            mochaErr = err;
-        })
         .pipe(istanbul.writeReports())
-        .on('end', () => {
-            cb(mochaErr);
-        });
+        .pipe(istanbul.enforceThresholds({thresholds: {global: 95}}));
 });
 
-gulp.task('default', ['jscs', 'eslint', 'mocha']);
+gulp.task('coveralls', ['test'], () => {
+    // Upload to coveralls only if running on CI environments
+    if (!process.env.CI) {
+        return;
+    }
+
+    return gulp.src(`${__dirname}/coverage/**/lcov.info`)
+      .pipe(coveralls());
+});
+
+gulp.task('default', ['jscs', 'eslint', 'test']);
 gulp.task('lint', ['jscs', 'eslint']);
-gulp.task('build', ['jscs', 'eslint', 'mocha', 'babel']);
+gulp.task('build', ['babel', 'jscs', 'eslint', 'coveralls']);
