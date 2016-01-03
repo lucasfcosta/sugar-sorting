@@ -4,6 +4,8 @@ var coveralls = require('gulp-coveralls');
 var eslint = require('gulp-eslint');
 var jscs = require('gulp-jscs');
 var mocha = require('gulp-mocha');
+var istanbul = require('gulp-istanbul');
+var plumber = require('gulp-plumber');
 var excludeGitignore = require('gulp-exclude-gitignore');
 
 gulp.task('jscs', () => {
@@ -16,7 +18,7 @@ gulp.task('jscs', () => {
 
 gulp.task('mocha', () => {
     return gulp.src('test/*.js')
-        .pipe(mocha());
+        .pipe(mocha({reporter: 'spec'}));
 });
 
 gulp.task('eslint', () => {
@@ -32,7 +34,28 @@ gulp.task('babel', () => {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('pre-test', () => {
+  return gulp.src(['lib/**/*.js'])
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire());
+});
+
+gulp.task('test', ['pre-test'], (cb) => {
+    let mochaErr;
+
+    gulp.src('test/**/*.js')
+        .pipe(babel())
+        .pipe(plumber())
+        .pipe(mocha({reporter: 'spec'}))
+        .on('error', (err) => {
+            mochaErr = err;
+        })
+        .pipe(istanbul.writeReports())
+        .on('end', () => {
+            cb(mochaErr);
+        });
+});
+
 gulp.task('default', ['jscs', 'eslint', 'mocha']);
-gulp.task('test', ['mocha']);
 gulp.task('lint', ['jscs', 'eslint']);
 gulp.task('build', ['jscs', 'eslint', 'mocha', 'babel']);
