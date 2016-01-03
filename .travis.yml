@@ -1,7 +1,7 @@
-sudo: false
 language: node_js
 node_js:
-  - 'iojs'
-  - '0.12'
-  - '0.10'
-after_success: "npm run-script test-ci && npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls"
+  - "4.1"
+  - "4.0"
+before_script:
+  - npm install -g gulp
+script: gulp build

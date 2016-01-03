@@ -14,7 +14,7 @@ var Sorter = function(array) {
 
   this.fillWith = function(newArray) {
     _elements = newArray.slice(0);
-    _simpleArray = true;
+    _simpleArray = true
   };
 
   // Returns the sorter object itself containing [full_object, key_value] for each item.
@@ -300,7 +300,7 @@ var Sorter = function(array) {
     var pivot = _elements[Math.floor((right + left) / 2)];
     var i = left;
     var j = right;
-    
+
     while (i <= j) {
       while (_elements[i] < pivot) {
         i++;
@@ -362,7 +362,7 @@ var Sorter = function(array) {
         j--;
       }
     }
-  
+
     return i;
   }
 
@@ -371,7 +371,7 @@ var Sorter = function(array) {
 
     if (_elements.length > 1) {
       index = _partition(left, right);
-    
+
       if (left < index - 1) {
         _quickSort(left, index - 1);
       }
@@ -392,7 +392,7 @@ var Sorter = function(array) {
       return _elements;
     }
   };
-  
+
 };
 
 module.exports = Sorter;
