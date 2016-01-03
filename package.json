@@ -1,6 +1,6 @@
 {
   "name": "sugar-sorting",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Sorting made sweet.",
   "homepage": "http://github.com/lucasfcosta/sugar-sorting",
   "author": {
@@ -11,8 +11,7 @@
   "repository": "lucasfcosta/sugar-sorting",
   "license": "MIT",
   "files": [
-    "index.js",
-    "sorter.js"
+    "dist"
   ],
   "keywords": [
     "sugar-sorting",
