@@ -14,5 +14,10 @@ gulp.task('jscs', () => {
         .pipe(jscs.reporter('fail'));
 });
 
+gulp.task('mocha', () => {
+    return gulp.src('test/*.js')
+        .pipe(mocha());
+});
+
 gulp.task('default', ['jscs']);
 gulp.task('build', ['jscs']);
