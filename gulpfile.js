@@ -19,5 +19,14 @@ gulp.task('mocha', () => {
         .pipe(mocha());
 });
 
-gulp.task('default', ['jscs']);
-gulp.task('build', ['jscs']);
+gulp.task('eslint', () => {
+    return gulp.src('**/*.js')
+        .pipe(excludeGitignore())
+        .pipe(eslint())
+        .pipe(eslint.failAfterError());
+});
+
+gulp.task('default', ['jscs', 'eslint', 'mocha', '']);
+gulp.task('test', ['mocha']);
+gulp.task('lint', ['jscs', 'eslint']);
+gulp.task('build', ['jscs', 'eslint', 'mocha', '']);
