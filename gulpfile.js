@@ -4,18 +4,9 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const coveralls = require('gulp-coveralls');
 const eslint = require('gulp-eslint');
-const jscs = require('gulp-jscs');
 const mocha = require('gulp-mocha');
 const istanbul = require('gulp-istanbul');
 const excludeGitignore = require('gulp-exclude-gitignore');
-
-gulp.task('jscs', () => {
-    return gulp.src('**/*.js')
-        .pipe(excludeGitignore())
-        .pipe(jscs())
-        .pipe(jscs.reporter())
-        .pipe(jscs.reporter('fail'));
-});
 
 gulp.task('mocha', () => {
     return gulp.src('test/*.js')
@@ -59,6 +50,6 @@ gulp.task('coveralls', ['test'], () => {
       .pipe(coveralls());
 });
 
-gulp.task('default', ['jscs', 'eslint', 'test']);
-gulp.task('lint', ['jscs', 'eslint']);
+gulp.task('default', ['eslint', 'test']);
+gulp.task('lint', ['eslint']);
 gulp.task('build', ['babel', 'jscs', 'eslint', 'coveralls']);
