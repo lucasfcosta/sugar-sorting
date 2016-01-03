@@ -26,7 +26,13 @@ gulp.task('eslint', () => {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('default', ['jscs', 'eslint', 'mocha', '']);
+gulp.task('babel', () => {
+    return gulp.src('lib/**/*.js')
+        .pipe(babel())
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', ['jscs', 'eslint', 'mocha']);
 gulp.task('test', ['mocha']);
 gulp.task('lint', ['jscs', 'eslint']);
-gulp.task('build', ['jscs', 'eslint', 'mocha', '']);
+gulp.task('build', ['jscs', 'eslint', 'mocha', 'babel']);
