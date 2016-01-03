@@ -52,4 +52,4 @@ gulp.task('coveralls', ['test'], () => {
 
 gulp.task('default', ['eslint', 'test']);
 gulp.task('lint', ['eslint']);
-gulp.task('build', ['babel', 'jscs', 'eslint', 'coveralls']);
+gulp.task('build', ['babel', 'eslint', 'coveralls']);
