@@ -16,7 +16,7 @@
         "no-sync": 2,
         "array-bracket-spacing": [1, "never"],
         "block-spacing": [1, "always"],
-        "brace-style:" 1,
+        "brace-style": 1,
         "camelcase": 1,
         "commaspacing": [2, {"before": false, "after": true}],
         "computed-property-spacing": [2, "never"],
