@@ -17,6 +17,7 @@ gulp.task('eslint', () => {
     return gulp.src('**/*.js')
         .pipe(excludeGitignore())
         .pipe(eslint())
+        .pipe(eslint.formatEach())
         .pipe(eslint.failAfterError());
 });
 
@@ -27,9 +28,9 @@ gulp.task('babel', () => {
 });
 
 gulp.task('pre-test', () => {
-  return gulp.src(['lib/**/*.js'])
-    .pipe(istanbul({includeUntested: true}))
-    .pipe(istanbul.hookRequire());
+    return gulp.src(['lib/**/*.js'])
+        .pipe(istanbul({includeUntested: true}))
+        .pipe(istanbul.hookRequire());
 });
 
 gulp.task('test', ['pre-test'], () => {
