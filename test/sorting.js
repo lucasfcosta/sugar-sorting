@@ -36,7 +36,7 @@ var objectArray = [{
     }
 }];
 
-describe('Bubble Sort', function () {
+describe.skip('Bubble Sort', function () {
   it('Should sort the simple array correctly', function () {
     var sorter = new Sorter(aSimpleArray);
 
@@ -80,7 +80,7 @@ describe('Bubble Sort', function () {
   });
 });
 
-describe('Selection Sort', function () {
+describe.skip('Selection Sort', function () {
   it('Should sort the simple array correctly', function () {
     var sorter = new Sorter(aSimpleArray);
 
@@ -125,7 +125,7 @@ describe('Selection Sort', function () {
   });
 });
 
-describe('Insertion Sort', function () {
+describe.skip('Insertion Sort', function () {
   it('Should sort the simple array correctly', function () {
     var sorter = new Sorter(aSimpleArray);
 
@@ -170,7 +170,7 @@ describe('Insertion Sort', function () {
   });
 });
 
-describe('Merge Sort', function () {
+describe.skip('Merge Sort', function () {
   it('Should sort the simple array correctly', function () {
     var sorter = new Sorter(aSimpleArray);
 
@@ -215,7 +215,7 @@ describe('Merge Sort', function () {
   });
 });
 
-describe('Heap Sort', function () {
+describe.skip('Heap Sort', function () {
   it('Should sort the simple array correctly', function () {
     var sorter = new Sorter(aSimpleArray);
 
@@ -260,7 +260,7 @@ describe('Heap Sort', function () {
   });
 });
 
-describe('Quick Sort', function () {
+describe.skip('Quick Sort', function () {
   it('Should sort the simple array correctly', function () {
     var sorter = new Sorter(aSimpleArray);
 
